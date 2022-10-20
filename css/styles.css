@@ -16,6 +16,7 @@
   --border-radius-people: 0px 0px 4px 4px;
   --social-links: #afb1b8;
   --overlay-for-devices: rgba(47, 48, 58, 0.8);
+  --overlay-for-portfolio: rgba(33, 150, 243, 0.9);
 }
 html {
   box-sizing: border-box;
@@ -149,13 +150,13 @@ img {
   font-size: 14px;
   line-height: 1.14;
 }
-
 .auth-nav .item + .item {
   margin-left: 50px;
 }
 .auth-nav .contacts:hover,
 .auth-nav .contacts:focus {
   color: var(--navigation-color);
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .contacts-header:hover,
 .contacts-header:focus {
@@ -304,6 +305,7 @@ img {
 .button-hero:hover,
 .button-hero:focus {
   background-color: #188ce8;
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .button-hero:active {
@@ -339,6 +341,7 @@ img {
   color: var(--primary-white-color);
   background-color: var(--navigation-color);
   border-radius: 4px;
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .button2:active {
   background-color: var(--primary-white-color);
@@ -351,6 +354,7 @@ img {
 .poster .item:focus {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
     1px 4px 6px rgba(0, 0, 0, 0.16);
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .paragraph2 {
   color: var(--secondary-text-color);
@@ -426,6 +430,31 @@ img {
 .devices .item:last-child {
   margin-right: 0px;
 }
+.devices-overlay {
+  background: var(--overlay-for-devices);
+  position: absolute;
+  height: 70px;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
+.applications {
+  position: absolute;
+  padding: 27px 0px;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: calc(16 / 14);
+  text-align: center;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--accent-color);
+}
+.devices .item {
+  position: relative;
+}
 .title {
   font-weight: 700;
   font-size: 14px;
@@ -500,6 +529,7 @@ img {
 .logo-footer:hover,
 .logo-footer:focus {
   text-decoration: underline var(--navigation-color);
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .footer {
@@ -511,6 +541,7 @@ img {
 .address:hover,
 .address:focus {
   color: var(--navigation-color);
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .city {
   color: var(--primary-white-color);
@@ -524,6 +555,7 @@ img {
 .city:hover,
 .city:focus {
   color: var(--navigation-color);
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .address {
   color: var(--address-color);
@@ -534,10 +566,6 @@ img {
   text-decoration: none;
   margin-bottom: 9px;
 }
-/* .footer {
-  padding-top: 65px;
-  padding-bottom: 65px;
-} */
 .footer .container {
   display: flex;
   align-items: baseline;
@@ -583,6 +611,7 @@ img {
 .social-items:hover,
 .social-items:focus {
   background-color: var(--navigation-color);
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Portfolio*/
@@ -603,77 +632,6 @@ img {
   padding: 20px 24px;
   border: 1px solid #eeeeee;
   border-top: none;
-}
-
-/* .site-nav .link {
-  position: relative;
-}
-.site-nav .link::after {
-  position: absolute;
-  bottom: -1px;
-  left: 0;
-  content: "";
-  background-color: var(--navigation-color);
-  height: 4px;
-  width: 100%;
-  border-radius: 2px;
-} */
-/* to portfolio  */
-/* .thumb {
-  position: relative;
-}
-.wow {
-
-  display: inline-block;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  content: "";
-  width: 100%;
-  height: 100%;
-  align-items: center;
-  justify-content: center;
-  background-color: #2196f3;
-}
-.resource {
-  position: absolute;
-  bottom: 63px;
-  top: 63px;
-  left: 24px;
-  right: 24px;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: calc(28 / 18);
-  letter-spacing: 0.03em;
-  color: white;
-  display: flex;
-  justify-content: center;
-} */
-
-.devices-overlay {
-  background: var(--overlay-for-devices);
-  position: absolute;
-  height: 70px;
-  width: 100%;
-  bottom: 0;
-  left: 0;
-  display: flex;
-  text-align: center;
-  justify-content: center;
-}
-.applications {
-  position: absolute;
-  padding: 27px 0px;
-  font-weight: 700;
-  font-size: 14px;
-  line-height: calc(16 / 14);
-  text-align: center;
-  letter-spacing: 0.03em;
-  text-transform: uppercase;
-  color: var(--accent-color);
-}
-.devices .item {
-  position: relative;
 }
 
 /* Data-Modal */
@@ -725,3 +683,43 @@ img {
 /* .backdrop.is-hidden .modal {
   transform: translate(-50%, -50%);
 }  Спитати у Влада, чи він це за задавав*/
+
+/* .poster .item {
+  position: relative;
+} */
+
+.thumb {
+  position: relative;
+}
+.item:hover .actions {
+  opacity: 1;
+}
+.actions {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  content: "";
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  background-color: var(--overlay-for-portfolio);
+  opacity: 0;
+  transition: 999ms cubic-bezier(0.4, 0, 0.2, 1);
+  /*align-items: center;
+  justify-content: center;
+   transition: 250ms cubic-bezier(0.4, 0, 0.2, 1); */
+}
+.resource {
+  position: absolute;
+  left: 24px;
+  right: 24px;
+  top: 63px;
+  bottom: 63px;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: calc(28 / 18);
+  letter-spacing: 0.03em;
+  color: var(--accent-color);
+  display: flex;
+  justify-content: center;
+}
