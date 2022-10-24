@@ -17,6 +17,7 @@
   --social-links: #afb1b8;
   --overlay-for-devices: rgba(47, 48, 58, 0.8);
   --overlay-for-portfolio: rgba(33, 150, 243, 0.9);
+  --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 html {
   box-sizing: border-box;
@@ -66,7 +67,7 @@ img {
   font-size: 26px;
   line-height: 1.19;
   text-decoration: none;
-  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: text-decoration 250ms var(--timing-function);
 }
 .header {
   background-color: var(--accent-color);
@@ -120,12 +121,12 @@ img {
   line-height: 1.14;
   letter-spacing: 0.02em;
   text-decoration: none;
+  transition: color 250ms var(--timing-function);
 }
 
 .site-nav .link:hover,
 .site-nav .link:focus {
   color: var(--navigation-color);
-  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .site-nav .active {
   color: var(--navigation-color);
@@ -133,6 +134,7 @@ img {
 .site-nav .active {
   position: relative;
 }
+
 .site-nav .active::after {
   position: absolute;
   left: 0;
@@ -142,7 +144,14 @@ img {
   height: 4px;
   background: var(--navigation-color);
   border-radius: 2px;
+  /* transform-origin: left; 
+  transform: scaleX(0);
+  transition: transform 500ms var(--timing-function);
+   transition також треба прибрати  */
 }
+/* .site-nav .active:hover::after { 
+  transform: scaleX(1);
+} */
 .auth-nav {
   display: flex;
   margin-left: auto;
@@ -156,14 +165,12 @@ img {
 .auth-nav .contacts:hover,
 .auth-nav .contacts:focus {
   color: var(--navigation-color);
-  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .contacts-header:hover,
 .contacts-header:focus {
   fill: var(--navigation-color);
   stroke: var(--navigation-color);
 }
-
 .contacts {
   color: var(--secondary-text-color);
   display: flex;
@@ -175,6 +182,7 @@ img {
   text-decoration: none;
   padding-bottom: 32px;
   padding-top: 32px;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /*Hero*/
@@ -300,13 +308,47 @@ img {
   min-width: 216px;
   border: 0;
   cursor: pointer;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  /* transition-delay: 1s; */
+  /* position: relative; */
+  /* overflow: hidden; */
 }
-
 .button-hero:hover,
 .button-hero:focus {
   background-color: #188ce8;
-  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
+/* вот тут практика */
+/* .button-hero::before {
+  content: "";
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  background-color: forestgreen;
+  transition: transform 990ms cubic-bezier(0.4, 0, 0.2, 1);
+  background-image: url("../images/img1.jpg");
+  background-size: contain;
+}
+.button-hero:hover::before {
+  transform: translateY(-35px);
+}
+.button-hero::after {
+  position: absolute;
+  top: 100%;
+  left: 32px;
+  content: "";
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-color: blueviolet;
+  transform: translateY(calc(-50%+100px));
+  transition: transform 990ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.button-hero:hover::after {
+  transform: translateY(-190%);
+  transition: transform 990ms cubic-bezier(0.4, 0, 0.2, 1);
+} */
+/* До цих властивостей практика */
 
 .button-hero:active {
   background-color: var(--primary-white-color);
@@ -325,8 +367,18 @@ img {
   border-radius: 4px;
   padding: 6px 22px;
   cursor: pointer;
+  transition: background-color 250ms var(--timing-function);
 }
-
+.button2:hover,
+.button2:focus {
+  color: var(--primary-white-color);
+  background-color: var(--navigation-color);
+  border-radius: 4px;
+}
+.button2:active {
+  background-color: var(--primary-white-color);
+  color: var(--navigation-color);
+}
 .knopka {
   display: flex;
   flex-wrap: wrap;
@@ -335,17 +387,6 @@ img {
 }
 .knopka .item:not(:nth-child(5n)) {
   margin-right: 8px;
-}
-.button2:hover,
-.button2:focus {
-  color: var(--primary-white-color);
-  background-color: var(--navigation-color);
-  border-radius: 4px;
-  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-.button2:active {
-  background-color: var(--primary-white-color);
-  color: var(--navigation-color);
 }
 .picture {
   text-decoration: underline transparent;
@@ -402,13 +443,14 @@ img {
   width: 44px;
   height: 44px;
   border-radius: 50px;
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .social-list .social-link:not(:nth-child(4n)) {
   margin-right: 10px;
 }
 .social-list .social-items:hover,
 .social-list .social-items:focus {
-  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
   fill: var(--accent-color);
   background-color: var(--navigation-color);
 }
@@ -489,6 +531,10 @@ img {
   /* justify-content: center; */
   width: 170px;
   height: 92px;
+  transition: fill 250ms var(--timing-function),
+    background-color 250ms var(--timing-function),
+    color 250ms var(--timing-function),
+    border-color 250ms var(--timing-function);
 }
 .clients-list {
   display: flex;
@@ -502,7 +548,6 @@ img {
 
 .clients-link:hover,
 .clients-link:focus {
-  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
   color: var(--navigation-color);
   border-color: var(--navigation-color);
 }
@@ -522,6 +567,7 @@ img {
   text-decoration: none;
   display: inline-block;
   margin-bottom: 20px;
+  transition: text-decoration 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .logotype-footer {
   color: var(--navigation-color);
@@ -529,7 +575,6 @@ img {
 .logo-footer:hover,
 .logo-footer:focus {
   text-decoration: underline var(--navigation-color);
-  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .footer {
@@ -541,7 +586,6 @@ img {
 .address:hover,
 .address:focus {
   color: var(--navigation-color);
-  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .city {
   color: var(--primary-white-color);
@@ -551,11 +595,11 @@ img {
   line-height: 1.71;
   text-decoration: none;
   display: inline-block;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .city:hover,
 .city:focus {
   color: var(--navigation-color);
-  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .address {
   color: var(--address-color);
@@ -565,6 +609,7 @@ img {
   line-height: 1.71;
   text-decoration: none;
   margin-bottom: 9px;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .footer .container {
   display: flex;
@@ -600,6 +645,8 @@ img {
   height: 44px;
   border-radius: 50%;
   background-color: rgba(255, 255, 255, 0.1);
+  transition: fill 250ms var(--timing-function),
+    background-color 250ms var(--timing-function);
 }
 
 .footer-social .social-items {
@@ -611,7 +658,6 @@ img {
 .social-items:hover,
 .social-items:focus {
   background-color: var(--navigation-color);
-  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Portfolio*/
@@ -633,6 +679,41 @@ img {
   border: 1px solid #eeeeee;
   border-top: none;
 }
+.thumb {
+  position: relative;
+  overflow: hidden;
+}
+.item:hover .actions {
+  transform: translateY(0);
+  /* opacity: 1; */
+}
+.actions {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  content: "";
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  background-color: var(--overlay-for-portfolio);
+  transition: transform 250ms var(--timing-function);
+  transform: translateY(101%);
+  /* opacity: 0; */
+}
+.resource {
+  position: absolute;
+  left: 24px;
+  right: 24px;
+  top: 63px;
+  bottom: 63px;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: calc(28 / 18);
+  letter-spacing: 0.03em;
+  color: var(--accent-color);
+  display: flex;
+  justify-content: center;
+}
 
 /* Data-Modal */
 
@@ -650,6 +731,7 @@ img {
   opacity: 1;
   height: 100%;
   width: 100%;
+  z-index: 1;
   /* min-width: 528px;
   min-height: 581px; Спитати у Влада, чи він це за задавав*/
   background-color: rgba(0, 0, 0, 0.2);
@@ -687,39 +769,3 @@ img {
 /* .poster .item {
   position: relative;
 } */
-
-.thumb {
-  position: relative;
-}
-.item:hover .actions {
-  opacity: 1;
-}
-.actions {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  content: "";
-  display: inline-block;
-  width: 100%;
-  height: 100%;
-  background-color: var(--overlay-for-portfolio);
-  opacity: 0;
-  transition: 999ms cubic-bezier(0.4, 0, 0.2, 1);
-  /*align-items: center;
-  justify-content: center;
-   transition: 250ms cubic-bezier(0.4, 0, 0.2, 1); */
-}
-.resource {
-  position: absolute;
-  left: 24px;
-  right: 24px;
-  top: 63px;
-  bottom: 63px;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: calc(28 / 18);
-  letter-spacing: 0.03em;
-  color: var(--accent-color);
-  display: flex;
-  justify-content: center;
-}
