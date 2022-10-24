@@ -528,6 +528,7 @@ img {
   border: 1px solid var(--social-links);
   border-radius: 4px;
   padding: 16px 32px;
+  /* align-items: center; */
   /* justify-content: center; */
   width: 170px;
   height: 92px;
