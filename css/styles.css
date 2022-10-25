@@ -67,7 +67,7 @@ img {
   font-size: 26px;
   line-height: 1.19;
   text-decoration: none;
-  transition: text-decoration 250ms var(--timing-function);
+  /* transition: text-decoration 250ms var(--timing-function); */
 }
 .header {
   background-color: var(--accent-color);
@@ -80,10 +80,10 @@ img {
   fill: currentColor;
 }
 
-.logo:hover,
+/* .logo:hover,
 .logo:focus {
   text-decoration: underline var(--navigation-color);
-}
+} */
 .logotype {
   color: var(--navigation-color);
 }
@@ -158,6 +158,8 @@ img {
   font-weight: 500;
   font-size: 14px;
   line-height: 1.14;
+  transition: color 250ms var(--timing-function),
+    fill 250ms var(--timing-function);
 }
 .auth-nav .item + .item {
   margin-left: 50px;
@@ -166,11 +168,11 @@ img {
 .auth-nav .contacts:focus {
   color: var(--navigation-color);
 }
-.contacts-header:hover,
+/* .contacts-header:hover,
 .contacts-header:focus {
   fill: var(--navigation-color);
   stroke: var(--navigation-color);
-}
+} */
 .contacts {
   color: var(--secondary-text-color);
   display: flex;
@@ -182,7 +184,12 @@ img {
   text-decoration: none;
   padding-bottom: 32px;
   padding-top: 32px;
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color 5000ms cubic-bezier(0.4, 0, 0.2, 1),
+    fill 2950ms var(--timing-function), stroke 250ms var(--timing-function);
+}
+.nav-icon {
+  /* transition: color 5000ms cubic-bezier(0.4, 0, 0.2, 1),
+    fill 2950ms var(--timing-function), stroke 250ms var(--timing-function); */
 }
 
 /*Hero*/
@@ -568,17 +575,19 @@ img {
   text-decoration: none;
   display: inline-block;
   margin-bottom: 20px;
-  transition: text-decoration 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  /* transition: text-decoration 250ms cubic-bezier(0.4, 0, 0.2, 1); */
 }
 .logotype-footer {
   color: var(--navigation-color);
 }
-.logo-footer:hover,
+/* .logo-footer:hover,
 .logo-footer:focus {
   text-decoration: underline var(--navigation-color);
-}
+} */
 
 .footer {
+  padding-top: 60px;
+  padding-bottom: 60px;
   background-color: var(--background-color);
 }
 .footer-address .item:not(:last-child) {
@@ -625,9 +634,9 @@ img {
 }
 
 .footer-box {
-  width: 231px;
-  padding-top: 60px;
-  padding-bottom: 60px;
+  /* width: 231px; */
+  /* padding-top: 60px;
+  padding-bottom: 60px; */
 }
 .join {
   color: var(--accent-color);
@@ -719,7 +728,7 @@ img {
 /* Data-Modal */
 
 .backdrop.is-hidden {
-  visibility: hidden;
+  /* visibility: hidden; */
   opacity: 0;
   pointer-events: none;
 }
@@ -763,10 +772,43 @@ img {
   cursor: pointer;
 }
 
-/* .backdrop.is-hidden .modal {
-  transform: translate(-50%, -50%);
-}  Спитати у Влада, чи він це за задавав*/
+/* ПРАКТИКА */
+/* .scene {
+  width: 300px;
+  height: 300px;
+  border: 2px solid red;
+  perspective: 380px;
+}
+  /* overflow: hidden; */
 
-/* .poster .item {
-  position: relative;
-} */
+/* .box {
+  height: 300px;
+  background-color: #188ce8;
+  background-image: url("../images/img1.jpg");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  transform: rotateY(0deg) rotateX(0deg);
+  transition: transform 500ms linear;
+}
+.scene:hover .box {
+  transform: rotateY(180deg) rotateX(40deg);
+}
+.scene2 {
+  margin-top: 100px;
+  width: 300px;
+  height: 300px;
+  border: 2px solid red;
+  perspective: 380px;
+}
+/* overflow: hidden; */
+/* .box2 {
+  height: 300px;
+  background-color: forestgreen;
+  transform: scale(0);
+  transition: transform 1500ms linear;
+}
+.scene2:hover .box2 {
+  transform: scale(1) rotateY(-2turn);
+}   */
+/* ПРАКТИКА */
